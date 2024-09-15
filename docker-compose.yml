@@ -1,0 +1,69 @@
+version: '3.7'
+
+services:
+  # Prometheus service
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring
+
+  # Grafana service
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    networks:
+      - monitoring
+
+  # Loki service
+  loki:
+    image: grafana/loki:2.7.1
+    container_name: loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./config/loki/local-config.yml:/etc/loki/local-config.yml
+    networks:
+      - monitoring
+
+  # Promtail service (log shipper)
+  promtail:
+    image: grafana/promtail:main
+    container_name: promtail
+    volumes:
+      - ./config/promtail/config.yml:/etc/promtail/config.yml
+      - /var/log:/var/log
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - monitoring
+
+  java-app:
+    image: openjdk:11-jre-slim
+    container_name: java-app
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: ["java", "-jar", "grafana-prometheus-java-1.0-SNAPSHOT.jar"]
+    ports:
+      - "8080:8080"
+    networks:
+      - monitoring
+    depends_on:
+      - prometheus
+      - loki
+      - promtail
+
+volumes:
+  grafana-storage:
+
+networks:
+  monitoring:
+    driver: bridge
