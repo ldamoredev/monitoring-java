@@ -39,7 +39,9 @@ services:
     image: grafana/promtail:main
     container_name: promtail
     volumes:
-      - ./config/promtail/config.yml:/etc/promtail/config.yml
+      - ./promtail-config.yaml:/etc/promtail/config.yaml  # Promtail configuration file
+      - ./logs:/app/logs  # Mount the logs directory for Promtail to scrape
+      - /var/lib/docker/containers:/var/lib/docker/containers
       - /var/log:/var/log
     command: -config.file=/etc/promtail/config.yml
     networks:
@@ -50,6 +52,7 @@ services:
     container_name: java-app
     volumes:
       - ./app:/app
+      - ./logs:/app/logs  # Mount the logs directory to access them from the host
     working_dir: /app
     command: ["java", "-jar", "grafana-prometheus-java-1.0-SNAPSHOT.jar"]
     ports:

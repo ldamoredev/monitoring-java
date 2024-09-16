@@ -1,0 +1,14 @@
+<Configuration status="WARN">
+    <Appenders>
+        <File name="File" fileName="/app/logs/app.log"> <!-- Log file path -->
+            <PatternLayout>
+                <Pattern>%d [%t] %-5level: %msg%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>

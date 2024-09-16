@@ -1,0 +1,20 @@
+2024-09-16 01:02:07,090 INFO [main] o.e.BasicHttpServer [BasicHttpServer.java:35] Starting Jetty server on port 8080...
+2024-09-16 01:02:07,139 INFO [main] i.j.Javalin [JavalinLogger.kt:16] Starting Javalin ...
+2024-09-16 01:02:07,140 INFO [main] o.e.j.s.Server [Server.java:384] jetty-11.0.23; built: 2024-08-14T01:40:17.906Z; git: 6fcf5ccaebd7ca13a0cb96c96adca699a24080a0; jvm 11.0.16+8
+2024-09-16 01:02:07,163 INFO [main] o.e.j.s.s.DefaultSessionIdManager [DefaultSessionIdManager.java:332] Session workerName=node0
+2024-09-16 01:02:07,168 INFO [main] o.e.j.s.h.ContextHandler [ContextHandler.java:907] Started o.e.j.s.ServletContextHandler@44d52de2{/,null,AVAILABLE}
+2024-09-16 01:02:07,170 INFO [main] o.e.j.s.AbstractConnector [AbstractConnector.java:376] Started ServerConnector@28cda624{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2024-09-16 01:02:07,172 INFO [main] o.e.j.s.Server [Server.java:439] Started Server@4470fbd6{STARTING}[11.0.23,sto=0] @316ms
+2024-09-16 01:02:07,172 INFO [main] i.j.Javalin [JavalinLogger.kt:16] 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-16 01:02:07,173 INFO [main] i.j.Javalin [JavalinLogger.kt:16] Javalin started in 80ms \o/
+2024-09-16 01:02:07,177 INFO [main] i.j.Javalin [JavalinLogger.kt:16] Listening on http://localhost:8080/
+2024-09-16 01:02:07,182 INFO [main] i.j.Javalin [JavalinLogger.kt:16] You are running Javalin 6.3.0 (released August 22, 2024).
+2024-09-16 17:25:35,597 INFO [Thread-12] o.e.BasicHttpServer [BasicHttpServer.java:40] Shutting down Prometheus HTTP server...
